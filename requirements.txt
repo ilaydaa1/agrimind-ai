@@ -1,0 +1,32 @@
+# AgriMind AI — runtime dependency contract.
+# Application (not a library): versions are pinned exactly for reproducible
+# local installs. Dev/test tooling lives separately in requirements-dev.txt.
+
+openai==1.68.2
+# Used in src/agrimind/infrastructure/llm/foundry_local_client.py
+# Speaks the OpenAI protocol to Foundry Local's OpenAI-compatible endpoint;
+# the standard library has no HTTP LLM client.
+
+sentence-transformers==3.4.1
+# Used in src/agrimind/infrastructure/embedding/e5_embedder.py
+# Loads intfloat/multilingual-e5-base and exposes its tokenizer for embeddings
+# and token-aware chunking; no stdlib equivalent for transformer embeddings.
+
+chromadb==0.6.3
+# Used in src/agrimind/infrastructure/vectorstore/chroma_store.py
+# Local persistent vector store (cosine space) with per-chunk metadata;
+# the stdlib offers no vector similarity index.
+
+PyMuPDF==1.25.3
+# Used in src/agrimind/infrastructure/extraction/pymupdf_extractor.py
+# Imported as `fitz`; per-page PDF text extraction with page numbers,
+# which the standard library cannot parse.
+
+streamlit==1.42.2
+# Used in app/main.py
+# Web UI for upload, questions, grounded answers, and developer mode.
+
+python-dotenv==1.0.1
+# Used in src/agrimind/config.py
+# Parses the .env file into the environment (Foundry endpoint, model id,
+# tunables); os.environ alone cannot read a .env file.

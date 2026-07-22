@@ -1,0 +1,20 @@
+# Packaging manifest for the AgriMind AI application: it makes `agrimind` an
+# importable package under the src/ layout.
+# Runtime dependencies are currently declared in requirements.txt. Keeping them
+# there rather than here is a present implementation choice, not a fixed
+# principle — they may move into this file if future tooling or packaging
+# warrants it. Project metadata (authors, license, readme) is added later, once
+# those files exist.
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "agrimind"
+version = "0.1.0"
+description = "Local RAG assistant for Turkish agricultural documents."
+requires-python = ">=3.10"
+
+[tool.setuptools.packages.find]
+where = ["src"]

@@ -1,0 +1,57 @@
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.egg-info/
+.eggs/
+build/
+dist/
+
+# ---- Virtual environments ----
+.venv/
+venv/
+env/
+
+# ---- Secrets & local config ----
+# The template (.env.example) is committed; real values never are.
+.env
+.env.local
+.streamlit/secrets.toml
+
+# ---- Local data & generated artifacts ----
+# Source PDFs are private; processed text and the Chroma index are
+# regenerable from them. Folders are kept via .gitkeep; contents are ignored.
+data/raw_pdfs/*
+data/processed/*
+data/chroma/*
+!data/raw_pdfs/.gitkeep
+!data/processed/.gitkeep
+!data/chroma/.gitkeep
+
+# ---- Local databases ----
+*.db
+*.sqlite3
+
+# ---- Local models & caches ----
+models/
+cache/
+
+# ---- Logs ----
+*.log
+
+# ---- Testing & tooling caches ----
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# ---- IDE ----
+.vscode/
+.idea/
+
+# ---- OS noise (cross-platform) ----
+.DS_Store
+Thumbs.db
+Desktop.ini
